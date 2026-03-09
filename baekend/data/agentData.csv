@@ -1,4 +1,4 @@
-.id,agentCode,fullName,password,role,createdAt
+id,agentCode,fullName,password,role,createdAt
 1,AGT001,John Doe,TempPass123!,admin,2024-05-01T08:00:00Z
 2,AGT002,Jane Smith,Welcome2024,agent,2024-05-01T09:15:00Z
 3,AGT003,Mike Ross,AgentSecure77,agent,2024-05-02T10:30:00Z

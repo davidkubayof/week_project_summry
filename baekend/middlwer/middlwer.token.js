@@ -2,10 +2,8 @@ import jwt from 'jsonwebtoken';
 
 export function authenticateToken(req, res, next) {
   const authHeader = req.headers['authorization'];
-  console.log(authHeader);
   const token = authHeader && authHeader.split(' ')[1];
-  console.log(token);
-
+  
   if (!token) {
     return res.status(401).json({ message: 'Token missing' });
   }
@@ -19,6 +17,3 @@ export function authenticateToken(req, res, next) {
     next();
   });
 }
-// if (req.user.role !== 'admin') {
-//   return res.status(403).json({ message: 'Access denied' });
-// }

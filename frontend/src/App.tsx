@@ -1,6 +1,8 @@
 import './App.css'
 import { Route, Routes } from 'react-router'
 import LoginPage from './Pages/LoginPage'
+import DashboardPage from './Pages/DashboardPage'
+import ProtectedRoute from './Components/ProtectedRoute'
 
 function App() {
   return (
@@ -12,8 +14,12 @@ function App() {
       </nav> */}
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        {/* <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/dashboard" element={
+          <ProtectedRoute>
+            <DashboardPage />
+          </ProtectedRoute>
+        } />
+        {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
     </>
   )
