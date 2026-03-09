@@ -13,7 +13,7 @@ export default function LoginPage() {
       [target.name]: target.value
     })
   }
-  const handleClick = async () => {
+  const handleClick = async () => {    
     const res = await getToken(user)
     localStorage.setItem("token", res.token)
     navigate("/dashboard")
@@ -23,7 +23,7 @@ export default function LoginPage() {
     <div className="pageLogin">
       <h1>walcom to login page</h1>
       <input className="input_agentCode" type="text" name="agentCode" placeholder="agentCode" onChange={(e) => setUser({ ...user, agentCode: e.target.value })} />
-      <input className="input_password" type="password" name="password" placeholder="password" onChange={handleChange} />
+      <input className="input_password" type="text" name="password" placeholder="password" onChange={handleChange} />
       <button className="button_Login" onClick={handleClick}>Login</button>
     </div>
   )
