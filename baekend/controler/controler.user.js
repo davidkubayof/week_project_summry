@@ -22,5 +22,5 @@ export async function verifyUserC(req, res) {
 }
 export async function getMe(req, res) {
     const { id, agentCode, fullName, role } = req.user
-    res.json({ user: { id, agentCode, fullName, role }})
+    res.json({ user: { id, agentCode, fullName, role } })
 }
