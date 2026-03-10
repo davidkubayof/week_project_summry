@@ -1,13 +1,9 @@
 import multer from "multer"
 
 export function uploading() {
-
     const storage = multer.memoryStorage()
-
     const fileFilter = (req, file, cb) => {
-
         const types = ["image/png", "image/jpg", "image/jpeg"]
-
         if (types.includes(file.mimetype)) {
             cb(null, true)
         } else {
@@ -19,10 +15,9 @@ export function uploading() {
         storage,
         fileFilter,
         limits: {
-            fileSize: 1024 * 1024 * 2 // 2MB
+            fileSize: 1024 * 1024 * 10 // 10MB
         }
     })
-
     return upload
 }
 

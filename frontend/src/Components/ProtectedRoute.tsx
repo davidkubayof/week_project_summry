@@ -1,9 +1,6 @@
-import { Navigate } from "react-router"
+import { Navigate, Outlet } from "react-router";
 
-export default function ProtectedRoute({ children}:any) {
-    const user = localStorage.getItem('token')
-    if (!user) {
-        return <Navigate to={'/'} />
+export default function ProtectedRoute() {
+    const isAuth = !!localStorage.getItem("token");
+    return isAuth ? <Outlet /> : <Navigate to="/" />;
     }
-    return children
-}
