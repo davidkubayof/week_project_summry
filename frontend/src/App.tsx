@@ -5,6 +5,7 @@ import DashboardPage from './Pages/DashboardPage'
 import ProtectedRoute from './Components/ProtectedRoute'
 import NewReportPage from './Pages/NewReportPage'
 import MyReportsPage from './Pages/MyReportsPage'
+import UploadCSVPage from './Pages/UploadCSVPage'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/newReportPage" element={<NewReportPage />} />
           <Route path="/myReportsPage" element={<MyReportsPage />} />
+          <Route path="/uploadCSVPage" element={<UploadCSVPage />} />
         </Route>
       </Routes>
     </>

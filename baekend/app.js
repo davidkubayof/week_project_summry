@@ -4,6 +4,7 @@ import { config } from 'dotenv'
 
 import routerAuth from './router/router.auth.js'
 import routerReport from './router/router.reports.js'
+import routerAdmin from './router/router.admin.js'
 
 config()
 
@@ -13,6 +14,7 @@ app.use(express.json());
 
 app.use('/auth', routerAuth);
 app.use('/reports', routerReport);
+app.use('/admin', routerAdmin);
 
 app.listen(process.env.PORT, () => {
     console.log(`server run http://localhost:${process.env.PORT}`)

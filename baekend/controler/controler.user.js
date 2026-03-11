@@ -4,14 +4,18 @@ import { readAll } from "../storage/StoreCsv.js";
 export async function verifyUserC(req, res) {
     try {
         const { agentCode, password } = req.body;
+        console.log(agentCode, password);
         if (!agentCode || !password) return res.status(400).json({ err: "missing filed agentCode or password" });
-
+    
         const dataUsers = await readAll('agentData.csv');
         const userIndex = dataUsers.findIndex((element) => element.agentCode === agentCode && element.password === password);
+        console.log(userIndex);
 
         if (userIndex === -1) return res.status(401).json({ err: "Worng pass or agentCode" });
 
         const { id, fullName, role } = dataUsers[userIndex]
+        console.log(id, fullName, role );
+        
         const token = JWT.sign(dataUsers[userIndex], process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN });
 
         res.status(200).json({ token, user: { id, agentCode, fullName, role } })

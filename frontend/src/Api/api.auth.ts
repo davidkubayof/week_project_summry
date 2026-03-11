@@ -6,7 +6,11 @@ export async function getToken(user: any) {
     body: JSON.stringify(user),
     headers: { "Content-Type": "application/json" },
   });  
-  if (!response.ok) throw new Error('faild')
+  if (!response.ok) {
+    const error: any = new Error("Login failed")
+    error.status = response.status
+    throw error
+  }
   return await response.json();
 }
 
